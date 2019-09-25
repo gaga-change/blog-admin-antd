@@ -21,15 +21,16 @@ const codeMessage = {
   503: '服务不可用，服务器暂时过载或维护。',
   504: '网关超时。',
 };
+
 /**
  * 异常处理程序
  */
-
 const errorHandler = error => {
   const { response } = error;
 
   if (response && response.status) {
-    const errorText = codeMessage[response.status] || response.statusText;
+    const message = error.data.message;
+    const errorText = message || codeMessage[response.status] || response.statusText;
     const { status, url } = response;
     notification.error({
       message: `请求错误 ${status}: ${url}`,
