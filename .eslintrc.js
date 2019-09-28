@@ -1,5 +1,8 @@
 const { strictEslint } = require('@umijs/fabric');
 
+Object.assign(strictEslint.rules, {
+  'no-underscore-dangle': ["error", { "allow": ["_id"] }]
+})
 module.exports = {
   ...strictEslint,
   globals: {

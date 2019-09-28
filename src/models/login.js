@@ -1,8 +1,10 @@
-import { routerRedux } from 'dva/router';
-import { stringify } from 'querystring';
 import { fakeAccountLogin, getFakeCaptcha } from '@/services/login';
-import { setAuthority } from '@/utils/authority';
+
 import { getPageQuery } from '@/utils/utils';
+import { routerRedux } from 'dva/router';
+import { setAuthority } from '@/utils/authority';
+import { stringify } from 'querystring';
+
 const Model = {
   namespace: 'login',
   state: {
@@ -16,7 +18,7 @@ const Model = {
         payload: response,
       }); // Login successfully
 
-      if (response.status === 'ok') {
+      if (response._id) {
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
         let { redirect } = params;

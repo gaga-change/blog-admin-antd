@@ -1,5 +1,6 @@
 import { Alert, Checkbox, Icon } from 'antd';
 import React, { Component } from 'react';
+
 import Link from 'umi/link';
 import { connect } from 'dva';
 import LoginComponents from './components/Login';
@@ -99,7 +100,7 @@ class Login extends Component {
               !submitting &&
               this.renderMessage('账户或密码错误（admin/ant.design）')}
             <UserName
-              name="userName"
+              name="username"
               placeholder={`${'用户名'}: admin or user`}
               rules={[
                 {

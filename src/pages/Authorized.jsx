@@ -1,8 +1,8 @@
+import Authorized from '@/utils/Authorized';
 import React from 'react';
 import Redirect from 'umi/redirect';
 import { connect } from 'dva';
 import pathToRegexp from 'path-to-regexp';
-import Authorized from '@/utils/Authorized';
 
 const getRouteAuthority = (path, routeData) => {
   let authorities;
@@ -34,7 +34,7 @@ const AuthComponent = ({
 }) => {
   const { currentUser } = user;
   const { routes = [] } = route;
-  const isLogin = currentUser && currentUser.name;
+  const isLogin = currentUser && currentUser._id;
   return (
     <Authorized
       authority={getRouteAuthority(location.pathname, routes) || ''}
